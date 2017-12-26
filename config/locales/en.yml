@@ -18,6 +18,7 @@ en:
       home: "Home"
       profile: "Profile"
       logout: "Log out"
+      manager: "Manager"
     footer:
       home: "Home"
       listtour: "List Tour"
@@ -67,6 +68,10 @@ en:
       if_have_account: "If you already have a TourFE accoun"
       login: "Log in"
       phone_code: "+84"
+      id: "ID"
+      role: "Role"
+      action: "Action"
+      cancel: "Cancel"
     edit:
       edit_title: "Edit user"
       save_change: "Save changes"
@@ -91,6 +96,28 @@ en:
     error_messages:
       contains: "The form contains"
       error: "error"
+  admins:
+    delete:
+      action_title: "Delete User"
+      confirm_delete: "Are you sure you wish to delete "
+      delete: "Delete"
+      cancel: "Cancel"
+    edit:
+      edit: "Edit"
+    list:
+      new_user: "New User"
+      search: "Search for..."
+    navbar_vertical:
+      toggle_nav: "Toggle navigation"
+      slidebar: "Slidebar menu"
+      all: "All"
+      all_admin: "List Admin"
+      all_business: "List Business"
+      all_user: "List User"
+    new:
+      new_title: "Create User"
+    index:
+      all_user: "All usersss"
   controllers:
     users_controller:
       success_signup: "OK! Sign up success!"
@@ -99,3 +126,11 @@ en:
     sessions_controller:
       logged_in: "OK! Logged in"
       invalid: "Invalid email/password"
+  views:
+    pagination:
+      first: "« FIRST"
+      last: "LAST »"
+      previous: "‹ PREV"
+      next: "NEXT ›"
+      truncate: "…"
+

@@ -21,6 +21,9 @@
                 <%= current_user.name %>
               <% end %>
             </li>
+            <% if current_user.admin? %>
+              <li><%= link_to t(".manager"), admins_path %></li>
+            <% end %>
             <li>
               <%= link_to current_user do %>
                   <span class="glyphicon glyphicon-list-alt"></span>
@@ -35,7 +38,6 @@
                 <%= t ".logout" %>
               <% end %>
             </li>
-
           <% else %>
             <li>
               <%= link_to signup_path do %>

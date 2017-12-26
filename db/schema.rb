@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102132945) do
+ActiveRecord::Schema.define(version: 20180110034804) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.datetime "departure_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
   create_table "images", force: :cascade do |t|
@@ -57,7 +70,7 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.boolean "is_insurrance"
     t.string "ct_insurrance"
     t.boolean "is_meal"
-    t.boolean "ct_meal"
+    t.string "ct_meal"
     t.boolean "is_tour_guide"
     t.string "ct_tour_guide"
     t.boolean "is_entrance_tickets"
@@ -80,6 +93,7 @@ ActiveRecord::Schema.define(version: 20180102132945) do
   create_table "tours", force: :cascade do |t|
     t.integer "user_id"
     t.string "tour_name"
+    t.string "tour_code"
     t.string "destination"
     t.integer "number_day"
     t.integer "number_night"
@@ -87,6 +101,7 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.integer "price"
     t.string "image"
     t.float "rate_avg"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,7 +113,7 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.string "password_digest"
     t.string "phone"
     t.string "address"
-    t.integer "role"
+    t.integer "role", default: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"

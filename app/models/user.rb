@@ -1,11 +1,10 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  has_many :tours, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_one :pay
   has_many :tours, through: :bookings
   enum sex: %i(Male Female)
-  enum role: %i(Admin Business User)
+  enum role: %i(admin business user).freeze
   before_save :downcase_email
   validates :name, presence: true,
     length: {maximum: Settings.user.name.maximum}
@@ -18,6 +17,10 @@ class User < ApplicationRecord
   has_secure_password
   validates :phone, presence: true
   validates :address, presence: true
+  scope :user_info, -> {select(:id, :name, :email, :phone, :address, :sex, :role)}
+  scope :list_admin, -> {where role: "admin"}
+  scope :list_business, -> {where role: "business"}
+  scope :list_user, -> {where role: "user"}
 
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

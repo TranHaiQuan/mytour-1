@@ -1,0 +1,21 @@
+<% if @tour.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      <%= t "shared.error_messages.contains" %> <%= pluralize @tour.errors.count, t("shared.error_messages.error") %>
+    </div>
+    <ul>
+      <% @tour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for @tour do |f|%>
+  <%= f.label :tour_name %>
+  <%= f.text_field :tour_name %>
+
+  <%= f.label :description %>
+  <%= f.cktext_area :description, rows: 10 %>
+
+  <%= f.submit class: "btn btn-warning" %>
+<% end %>
