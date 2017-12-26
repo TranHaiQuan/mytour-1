@@ -57,10 +57,21 @@ en:
       if_have_account: "If you already have a TourFE accoun"
       login: "Log in"
       phone_code: "+84"
+  sessions:
+    new:
+      email: "Email"
+      password: "Password"
+      login: "Log in"
+      new_user: "New user? "
+      signup: "Sign up now!"
+      remember_me: "Remember me"
   shared:
     error_messages:
       contains: "The form contains"
       error: "error"
   controllers:
-    users_controller.rb:
+    users_controller:
       success: "OK! Sign up success!"
+    sessions_controller:
+      loged_in: "OK! Logged in"
+      invalid: "Invalid email/password"
