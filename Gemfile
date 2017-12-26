@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "bcrypt", "3.1.11"
+gem "bootstrap-datepicker-rails"
 gem "bootstrap-sass", "3.3.7"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "carrierwave", "1.1.0"
@@ -12,8 +13,10 @@ gem "font-awesome-sass"
 gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "mini_magick", "4.7.0"
-gem "nokogiri", "1.8.1"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.4"
 gem "sass-rails", "~> 5.0"
@@ -21,7 +24,6 @@ gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "uglifier", ">= 1.3.0"
-gem "will_paginate", "3.1.6"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

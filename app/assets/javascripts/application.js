@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap
-//= require bootstrap-sprockets
 //= require rails-ujs
-//= require carousel
-//= require turbolinks
+//= require bootstrap-datepicker
+//= require booking
 //= require_tree .
 

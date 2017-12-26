@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration[5.1]
     create_table :reviews do |t|
       t.integer :user_id
       t.integer :tour_id
-      t.float :rate
+      t.float :rate, default: 0
       t.string :comment
 
       t.timestamps

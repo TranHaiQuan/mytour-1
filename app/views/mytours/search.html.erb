@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<body class="homepage">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="searchtitle">
+        Search Tours
+      </div>
+      <div class="searchtour">
+        You want to travel to:
+        <%= form_tag searchresult_path, method: :get do %>
+          <div class="row">
+            <div class="col-md-8 cusinput">
+              <div class="input-group cusinput">
+                  <%= text_field_tag :term, params["term"], class: "form-control
+                    ipsize", id: "filter-autocomplete-search" %>
+              </div>
+            </div>
+            <div class="col-md-4 cussearch">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-8 totalrow">
+      <div class="row">
+        <% if @tours.size == 0 %>
+          <b class="notfound"><%= t ".notfound" %></b>
+        <% end %>
+      </div>
+      <% @tours.each do |tour| %>
+        <div class="row borderrow">
+          <div class="col-md-3 imgrow">
+            <%= image_tag(tour.image, width: "200", height: "150") %>
+          </div>
+          <div class="col-md-6 titletour">
+            <%= tour.tour_name %>
+            <div>
+              Tour Code: <%= tour.id %>
+            </div>
+            <div>
+              <span class="glyphicon glyphicon-time"></span>
+              <%= tour.number_day %> Day <%= tour.number_night %> Night
+            </div>
+          </div>
+          <div class="col-md-3 pricerow">
+            <div class="oneprice">
+              price one guest
+            </div>
+            <%= number_to_vnd(tour.price) %><%= t ".vnd" %>
+            <div class="detailbtn">
+              <%= link_to mytour_path(id: tour.id),class: "btn btn-danger textal" do %>
+                Detail <span class="glyphicon glyphicon-chevron-right"></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>

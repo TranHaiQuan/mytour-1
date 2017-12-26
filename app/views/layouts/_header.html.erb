@@ -1,39 +1,33 @@
-<div id="header">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <nav id="nav">
-      <ul>
-        <li><%= link_to image_tag("logo.png", alt: t(".logo")), "#" %></li>
-        <div class="dropdown">
-          <button class="dropbtn">
-            <a href="#list"><%= t ".listtour" %></a>
-          </button>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">
-            <a href="#booked"><%= t ".booktour" %></a>
-          </button>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn"><%= t ".acount" %></button>
-          <div class="dropdown-content">
-              <a href="#"><%= t ".login" %></a>
-              <a href="#"><%= t ".signup" %></a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">
-            <a href="#"><%= t ".contact" %></a>
-          </button>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">
-            <%= link_to image_tag("vn.png", alt: t(".vnlogo")), "#" %>
-          </button>
-          <div class="dropdown-logo">
-            <%= link_to image_tag("en.png", alt: t(".enlogo")), "#" %>
-          </div>
-        </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+        data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to t(".home"), root_path %></li>
+        <li><%= link_to t(".listtour"), mytours_path %></li>
+        <li><%= link_to t(".booktour"), "#booked" %></li>
       </ul>
-    </nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-user"></span>
+            <%= t ".signup" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to login_path do %>
+            <span class="glyphicon glyphicon-user"></span>
+            <%= t ".login" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</nav>

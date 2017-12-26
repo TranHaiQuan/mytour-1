@@ -1,6 +1,17 @@
 en:
+  title: "Tourist For Everyone"
+  nameweb: "TouristFE"
+  mainpage: "Home"
+  notfound: "Not found!!"
   application_helper:
     base_title: "Book tour for everyone"
+  number:
+    currency:
+      format:
+        format: "%n %u"
+        delimiter: ","
+        precision: 0
+        unit: ""
   layouts:
     header:
       logo: "TouristFE logo"
@@ -12,12 +23,43 @@ en:
       login: "Login"
       signup: "Sign up"
       contact: "Contact"
+      home: "Home"
     footer:
-      group: "Group: 02"
-      dvn: "Đặng Văn Nam"
-      thq: "Trần Hải Quan"
-      develop: "Developer: Dang Van Nam"
+      home: "Home"
+      listtour: "List Tour"
+      book: "Booking Online"
+      copyright: "Copyright © 2017 All rights reserved"
   mytours:
+    show:
+      vnd: " VNĐ"
+      depart: "Depart:"
+      guest: "Guest number:"
+      booktour: "Booking Tour"
+      day: " Day"
+      night: " Night"
+      tourcode: "Tour code: "
+      schedule: "Schedule Tour"
+      comment: "comment...."
+      submit: "Submit"
+      sentby: "Sent by: "
+    search:
+      notfound: "Not found!!"
+      vnd: " VNĐ"
+    index:
+      search: "Search Tours"
+      want: "You want to travel to:"
+      sort: "Sort by:"
+      country: "Tour in country"
+      enterplace: "Enter place..."
+      farvoriteplace: "Farvorite Place"
+      danang: "Đà Nẵng"
+      nhatrang: "Nha Trang"
+      vnd: " VNĐ"
+      tourcode: "Tour code: "
+      priceone: "price one guest"
+      day: " Day"
+      night: " Night"
+      detail: "Detail"
     home:
       bg1: "background 1"
       bg2: "background 2"
@@ -41,6 +83,29 @@ en:
       info_h: "11 Handico Tower Pham Hung Street,"
       info_i: "Nam Tu Liem county, Ha Noi"
       office: "OFFICE ADDRESS"
+  bookings:
+    edit:
+      bookinfo: "Booking confirmation"
+      tourcode: "Tour Code:"
+      depart: "Depart: "
+      customer: "Number customer: "
+      total: "Total price: "
+      notebook: "Note book"
+      vnd: " VNĐ"
+      day: " Day"
+      night: " Night"
+      confirm: "Complete Booking"
+      require: "Other requirements..."
+    show:
+      bookinfo: "Booking Information"
+      tourcode: "Tour Code: "
+      depart: "Depart: "
+      customer: "Number customer: "
+      total: "Total price: "
+      notebook: "Note book: "
+      vnd: " VNĐ"
+      day: " Day"
+      night: " Night"
   users:
     new:
       signup_title: "Sign up"

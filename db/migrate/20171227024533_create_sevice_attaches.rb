@@ -5,7 +5,7 @@ class CreateSeviceAttaches < ActiveRecord::Migration[5.1]
       t.boolean :is_insurrance
       t.string :ct_insurrance
       t.boolean :is_meal
-      t.boolean :ct_meal
+      t.string :ct_meal
       t.boolean :is_tour_guide
       t.string :ct_tour_guide
       t.boolean :is_entrance_tickets

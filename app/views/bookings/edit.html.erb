@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<body class="homepage">
+  <div class="container">
+    <div class="row">
+      <div class="bookinfo"><%= t ".bookinfo" %></div>
+      <div class="col-md-6">
+      <%= image_tag(@booking.tour.image, width: Settings.image.widthbook,
+        height: Settings.image.heightbook) %>
+      </div>
+      <div class="col-md-5 well">
+        <div class="booktourname">
+          <%= @booking.tour.tour_name %>
+        </div>
+        <div class="row booktourcode">
+          <div class="col-md-6">
+            <%= t ".tourcode" %><%= @booking.tour.id %>
+          </div>
+          <div class="col-md-6">
+            <span class="glyphicon glyphicon-time"></span>
+            <%= @booking.tour.number_day %><%= t ".day" %>
+            <%= @booking.tour.number_night %><%= t ".night" %>
+          </div>
+        </div>
+        <div class="row booktourdepart">
+          <div class="col-md-2">
+            <%= t ".depart" %>
+          </div>
+          <div class="col-md-4">
+            <%= @booking.departure_date.strftime("%d/%m/%Y") %>
+          </div>
+          <div class="col-md-6">
+            <%= t ".customer" %><%= @booking.number_customer %>
+          </div>
+        </div>
+        <div class="row booktourdepart">
+          <div class="col-md-6"><%= t ".total" %></div>
+          <div class="col-md-6">
+            <%= number_to_vnd(@booking.total_price) %><%= t ".vnd" %>
+          </div>
+        </div>
+      <%= form_for @booking do |f| %>
+        <%= f.label :notebook, value: t(".notebook"), class: "booktourdepart" %>
+        <%= f.text_area :notebook, placeholder: t(".require"),
+          class: "form-control" %>
+        <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+    </div>
+  </div>
+</body>
+</html>

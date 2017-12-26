@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       flash.now[:danger] = t "controllers.sessions_controller.invalid"
       render :new
     end
+    debugger
   end
 
   def destroy

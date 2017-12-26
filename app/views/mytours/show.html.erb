@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<body class="homepage">
+  <div class="container">
+    <div class="row borderrow1">
+      <div class="col-md-8 totalrow1 borderrow1">
+        <div class="borderele">
+          <div class="showname">
+            <%= @tours.tour_name %>
+          </div>
+          <div class="imgleft">
+            <%= image_tag(@tours.image, width: Settings.image.width,
+              height: Settings.image.height) %>
+          </div>
+          <div class="row well">
+            <div class="col-md-3">
+              <div class="showdes">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <%= @tours.destination %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="showtime">
+                <span class="glyphicon glyphicon-time"></span>
+                <%= @tours.number_day %><%= t ".day" %>
+                <%= @tours.number_night %><%= t ".night" %>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+              <div class="showcode">
+                <%= t ".tourcode" %><%= @tours.id %>
+              </div>
+            </div>
+          </div>
+          <div class="showsche">
+            <%= t ".schedule" %>
+          </div>
+          <div class="showplan">
+            <%= @tours.plan.plan_des %>
+          </div>
+          <div>
+            <%= form_for @reviews do |r| %>
+              <div class="row">
+                <div class="col-xs-6">
+                  <%= r.text_area :comment, placeholder: t(".comment"),
+                    class: "form-control" %>
+                </div>
+                <%= r.hidden_field :tour_id, value: @tours.id, class: "form-control" %>
+                <%= r.submit t(".submit"), class: "btn btn-primary col-xs-2" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 well">
+              <% @comments.each do |t| %>
+                <div>
+                  <%= t ".sentby" %><%= t.user.name %>
+                  <div class="well"><%= t.comment %></div>
+                </div>
+              <% end %>
+            <div class="pagi"><%= paginate @comments, :theme => "twitter-bootstrap-3" %>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="movebook">
+          <%= form_for @booking do |f| %>
+            <div class="alrow">
+              <div class="row">
+                <div class="col-md-8">
+                  <%= f.text_field :total_price, value: @tours.price,
+                    class: "total_price", readonly: true %>
+                </div>
+                <div class="col-md-4"><%= t ".vnd" %></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 depa">
+                <div class="departrow"><%= t ".depart" %></div>
+              </div>
+              <div class="col-md-7 depa">
+                <div id="datepicker" class="input-group date">
+                  <%= f.text_field :departure_date, value: @booking.departure_date.strftime("%d/%m/%Y"),
+                    class: "form-control", readonly: true %>
+                  <span class="input-group-addon"><span class="glyphicon
+                    glyphicon-calendar">
+                  </span></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 gue">
+                <div class="guestrow"><%= t ".guest" %></div>
+              </div>
+              <div class="col-md-6 numberr">
+                <%= f.hidden_field :user_id, value: current_user.id, class: "form-control" %>
+                <%= f.hidden_field :tour_id, value: @tours.id, class: "form-control" %>
+                <%= f.hidden_field :price, value: @tours.price, class: "form-control", id: "price" %>
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <span id="down" class="btn btn-default">-</span>
+                  </span>
+                  <%= f.text_field :number_customer, value: 1,
+                    class: "form-control", id: "customer", readonly: true %>
+                  <span class="input-group-btn">
+                   <span id="up" class="btn btn-default">+</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6 btnsub">
+                <%= f.submit t(".booktour"), class: "btn btn-danger" %>
+              </div>
+              <div class="col-md-3"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
