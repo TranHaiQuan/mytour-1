@@ -1,55 +1,58 @@
-<header class="header">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <%= link_to t("name_web"), root_path, class:"navbar-brand" %>
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-          data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to t(".list_tour"), "#list" %></li>
-          <li><%= link_to t(".book_tour"), "#booked" %></li>
-          <% if logged_in? %>
-            <li>
-              <%= link_to "" do %>
-                <span class="glyphicon glyphicon-user"></span>
-                <%= current_user.name %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to current_user do %>
-                  <span class="glyphicon glyphicon-list-alt"></span>
-                  <%= t ".profile" %>
-              <% end %>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <%= link_to logout_path, method: :delete do %>
-                <span class="glyphicon glyphicon-off"></span>
-                <%= t ".logout" %>
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to signup_path do %>
-                <span class="glyphicon glyphicon-user"></span>
-                <%= t ".signup" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to login_path do %>
-                <span class="glyphicon glyphicon-user"></span>
-                <%= t ".login" %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+<header id="home">
+  <div class="main_menu_bg">
+    <div class="container">
+      <div class="row">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid" id="colla">
+            <div class="navbar-header">
+              <ul class="nav navbar-nav navbar-left">
+                <li><%= link_to t(".home"), root_path %></li>
+              </ul>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to t(".list_tour"), mytours_path,
+                  class: "booking" %></li>
+                <% if logged_in? %>
+                  <li>
+                    <%= link_to "" do %>
+                      <span class="glyphicon glyphicon-user"></span>
+                      <%= current_user.name %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to current_user do %>
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        <%= t ".profile" %>
+                    <% end %>
+                  </li>
+
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to logout_path, method: :delete do %>
+                      <span class="glyphicon glyphicon-off"></span>
+                      <%= t ".logout" %>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to signup_path do %>
+                      <span class="glyphicon glyphicon-user"></span>
+                      <%= t ".signup" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to login_path do %>
+                      <span class="glyphicon glyphicon-user"></span>
+                      <%= t ".login" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
-  </nav>
+  </div>
 </header>

@@ -1,0 +1,16 @@
+<%= search_form_for @search, url: mytours_path, remote: true do |f| %>
+  <div class="sortlink clearinput">
+    <%= t ".sort" %>
+    <%= sort_link @search, :destination, "Place", {}, {remote: true,
+      method: :get} %>
+    <%= sort_link @search, :price, {}, {remote: true, method: :get} %>
+  </div>
+  <div class="input-group input-group-lg">
+    <div class="form-group input-group-lg">
+      <%= f.text_field :tour_name_cont, class: "form-control clearinput",placeholder: t(".input_keyword"), id: "searchinput", autocomplete: "off" %>
+    </div>
+    <div class="input-group-btn">
+      <%= f.submit t(".search"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

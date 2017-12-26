@@ -1,0 +1,4 @@
+$('#tours').html('<%= j render "tours" %>');
+$('#filter').html('<%= j render "filter" %>');
+$('#pagination').html('<%= j paginate(@tours, remote: true).to_s %>');
+$('#counter').html('<%= j page_entries_info(@tours).to_s %>');

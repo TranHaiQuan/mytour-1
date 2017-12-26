@@ -1,0 +1,50 @@
+<section class="detailshow">
+  <div class="slider_overlay">
+    <div class="container">
+      <div class="row well bookstatus">
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6 borstatus status">
+             <%= t ".status" %><%= @booking.status %>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <div class="row well">
+            <div class="showname">
+              <%= @booking.tour.tour_name %>
+            </div>
+            <div class="col-md-3">
+              <div class="showdes">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <%= @booking.tour.destination %>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="showtime">
+                <span class="glyphicon glyphicon-time"></span>
+                <%= @booking.tour.number_day %><%= t ".day" %>
+                <%= @booking.tour.number_night %><%= t ".night" %>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+              <div class="showcode">
+                <%= t ".tourcode" %><%= @booking.tour.tour_code %>
+              </div>
+            </div>
+            <div class="showdes">
+              Number guest: <%= @booking.number_customer %>
+            </div>
+            <div class="showdes">
+              Total Price: <%= number_to_vnd(@booking.total_price) %> VND
+            </div>
+            <div class="showdes">
+              <%= link_to "Click To Show List Tour", mytours_path, class: "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+</section>

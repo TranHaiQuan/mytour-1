@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap-sprockets
-//= require rails-ujs
-//= require carousel
+//= require bootstrap-datepicker
+//= require booking
+//= require jquery.raty
+//= require ratyrate
+//= require social-share-button
 //= require_tree .
 

@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102132945) do
+ActiveRecord::Schema.define(version: 20180117164011) do
+
+  create_table "average_caches", force: :cascade do |t|
+    t.integer "rater_id"
+    t.string "rateable_type"
+    t.integer "rateable_id"
+    t.float "avg", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
+    t.index ["rater_id"], name: "index_average_caches_on_rater_id"
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tour_id"
     t.integer "number_customer"
-    t.datetime "departure_date"
+    t.integer "total_price"
+    t.string "notebook"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,12 +41,13 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pays", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "booking_id"
-    t.string "note"
+  create_table "overall_averages", force: :cascade do |t|
+    t.string "rateable_type"
+    t.integer "rateable_id"
+    t.float "overall_avg", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -43,29 +57,38 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rates", force: :cascade do |t|
+    t.integer "rater_id"
+    t.string "rateable_type"
+    t.integer "rateable_id"
+    t.float "stars", null: false
+    t.string "dimension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type"
+    t.index ["rateable_type", "rateable_id"], name: "index_rates_on_rateable_type_and_rateable_id"
+    t.index ["rater_id"], name: "index_rates_on_rater_id"
+  end
+
+  create_table "rating_caches", force: :cascade do |t|
+    t.string "cacheable_type"
+    t.integer "cacheable_id"
+    t.float "avg", null: false
+    t.integer "qty", null: false
+    t.string "dimension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
+    t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tour_id"
-    t.float "rate"
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sevice_attaches", force: :cascade do |t|
-    t.integer "tour_id"
-    t.boolean "is_insurrance"
-    t.string "ct_insurrance"
-    t.boolean "is_meal"
-    t.boolean "ct_meal"
-    t.boolean "is_tour_guide"
-    t.string "ct_tour_guide"
-    t.boolean "is_entrance_tickets"
-    t.string "ct_entrance_tickets"
-    t.boolean "is_shuttle_car"
-    t.string "ct_shuttle_car"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_reviews_on_user_id_and_created_at"
   end
 
   create_table "stipulates", force: :cascade do |t|
@@ -80,13 +103,15 @@ ActiveRecord::Schema.define(version: 20180102132945) do
   create_table "tours", force: :cascade do |t|
     t.integer "user_id"
     t.string "tour_name"
+    t.string "tour_code", default: "e522a89ba03a"
     t.string "destination"
     t.integer "number_day"
     t.integer "number_night"
-    t.string "pick_up"
+    t.date "departure_date", default: "2018-01-20"
+    t.date "return_date"
+    t.string "pickup_place"
     t.integer "price"
     t.string "image"
-    t.float "rate_avg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,7 +123,7 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.string "password_digest"
     t.string "phone"
     t.string "address"
-    t.integer "role"
+    t.boolean "admin", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
