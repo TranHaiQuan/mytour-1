@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <body class="homepage">
-  <div class="container">
+  <div class="container-fluid">
     <%= render "layouts/header" %>
   </div>
   <div class="slided">
@@ -70,7 +70,7 @@
         <br>
         <%= t ".info_d" %>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
           <button class="btn-change"><%= t ".listtour" %></button>
       </div>
@@ -103,7 +103,7 @@
       <b><%= t ".bktour" %></b>
     </button>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div id="cf">
       <%= link_to image_tag("img5.jpg", alt: t(".bg4"), class: "bottom"), "#" %>
       <%= link_to image_tag("img6.jpg", alt: t(".bg4"), class: "top"), "#" %>
