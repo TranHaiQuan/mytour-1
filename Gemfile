@@ -12,6 +12,7 @@ gem "font-awesome-sass"
 gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "kaminari"
 gem "mini_magick", "4.7.0"
 gem "nokogiri", "1.8.1"
 gem "puma", "~> 3.7"
@@ -21,7 +22,6 @@ gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "uglifier", ">= 1.3.0"
-gem "will_paginate", "3.1.6"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

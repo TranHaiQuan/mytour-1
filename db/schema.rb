@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.boolean "is_insurrance"
     t.string "ct_insurrance"
     t.boolean "is_meal"
-    t.boolean "ct_meal"
+    t.string "ct_meal"
     t.boolean "is_tour_guide"
     t.string "ct_tour_guide"
     t.boolean "is_entrance_tickets"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.string "password_digest"
     t.string "phone"
     t.string "address"
-    t.integer "role"
+    t.integer "role", default: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"

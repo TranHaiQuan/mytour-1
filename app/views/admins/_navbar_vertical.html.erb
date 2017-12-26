@@ -1,0 +1,60 @@
+<div class="col-sm-3 col-md-2 affix-sidebar">
+  <div class="sidebar-nav">
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+        <span class="sr-only"><%= t "toggle_nav" %></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <span class="visible-xs navbar-brand"><%= t "slidebar" %></span>
+      </div>
+      <div class="navbar-collapse collapse sidebar-navbar-collapse">
+        <ul class="nav navbar-nav" id="sidenav01">
+          <li class="active">
+            <a href="#" data-toggle="collapse" data-target="#toggleDemo0"
+              data-parent="#sidenav01" class="collapsed">
+              <h4><span class="glyphicon glyphicon-user"></span>
+                <%= current_user.name %><br>
+                <small><%= current_user.role %></small>
+              </h4>
+              </a>
+          </li>
+          <li>
+            <%= link_to admins_path, id: "admin" do %>
+              <span class="glyphicon glyphicon-list-alt"></span>
+              <%= t ".all" %>
+              <span class="badge pull-right"><%= User.all.size %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to list_admin_path, id: "admin" do %>
+              <span class="glyphicon glyphicon-user"></span>
+              <%= t ".all_admin" %>
+              <span class="badge pull-right"><%= User.list_admin.size %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to list_business_path, id: "business" do %>
+              <span class="glyphicon glyphicon-user"></span>
+              <%= t ".all_business" %>
+              <span class="badge pull-right">
+                <%= User.list_business.size %>
+              </span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to list_user_path, id: "user" do %>
+              <span class="glyphicon glyphicon-user"></span>
+              <%= t ".all_user" %>
+              <span class="badge pull-right">
+                <%= User.list_user.size %>
+              </span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

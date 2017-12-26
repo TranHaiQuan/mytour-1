@@ -1,0 +1,46 @@
+<div class="row affix-row">
+  <%= render "navbar_vertical" %>
+  <div class="col-sm-9 col-md-10 affix-content">
+    <div class="container-fluid">
+      <div class="page-header">
+        <h3><span class="glyphicon glyphicon-th-list"></span> <%= yield(:table_name) %></h3>
+        <div class="row">
+          <div class="col-md-3">
+            <%= link_to t(".new_user"), new_admin_path, remote: true, class: "btn btn-primary" %>
+          </div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <input type="text" class="form-control" id="search-input" placeholder= <%= t ".search" %>>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="new-user"></div>
+        <table class="table table-bordered table-striped table-hover" >
+          <thead>
+            <tr>
+              <th><%= t "users.form.id" %></th>
+              <th><%= t "users.form.name" %></th>
+              <td><%= t "users.form.email" %></td>
+              <td><%= t "users.form.phone" %></td>
+              <th><%= t "users.form.address" %></th>
+              <th><%= t "users.form.sex" %></th>
+              <td><%= t "users.form.role" %></td>
+              <td><%= t "users.form.action" %></td>
+            </tr>
+          </thead>
+          <tbody class="user-index" id="user-table">
+            <%= render "index" %>
+          </tbody>
+        </table>
+        <%= paginate @users %>
+      </div>
+      <div id="user-modal" class="modal fade"></div>
+    </div>
+  </div>
+</div>

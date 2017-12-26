@@ -1,5 +1,4 @@
 module SessionsHelper
-
   def log_in user
     session[:user_id] = user.id
   end
@@ -10,12 +9,9 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  def current_user? user
-    user == current_user
-  end
-
   def redirect_back_or default
     redirect_to session[:forwarding_url] || default
+    session[:forwarding_url] = nil
   end
 
   def url_store_location
@@ -34,13 +30,25 @@ module SessionsHelper
     end
   end
 
+  def logged_in_user
+    unless logged_in?
+      url_store_location
+      flash[:danger] = t "controllers.users_controller.please_login"
+      redirect_to login_path
+    end
+  end
+
+  def admin_user
+    redirect_back_or root_path unless current_user.admin?
+  end
+
   def logged_in?
     current_user.present?
   end
 
   def forget user
     user.forget
-    cookies.delete :user_id
+    cookies.delete :user_id1
     cookies.delete :remember_token
   end
 

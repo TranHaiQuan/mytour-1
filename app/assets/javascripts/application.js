@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require carousel
+//= require turbolinks
+//= require filter_search
 //= require_tree .
-
