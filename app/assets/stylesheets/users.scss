@@ -46,3 +46,20 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+.detail {
+  background-color: aliceblue;
+  border-top-width: 5px;
+  padding: 20px 20px;
+  h2 {
+    margin-top: 0;
+  }
+}
+tbody {
+  tr:first-child td {
+    border-top: 0;
+  }
+  tr td:first-child {
+    font-weight: bold;
+  }
+}

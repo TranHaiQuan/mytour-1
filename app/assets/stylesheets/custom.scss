@@ -701,6 +701,7 @@ table {
 /* Footer */
 
 footer {
+  margin-top: 50px;
   background-color: $color-222222;
   ul {
     list-style: none;
@@ -754,4 +755,8 @@ footer {
     font-size: 12px;
     padding: 15px 0 10px 0;
   }
+}
+
+header {
+  margin-bottom: 60px;
 }
