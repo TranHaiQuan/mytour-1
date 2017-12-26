@@ -1,7 +1,6 @@
 en:
   title: "Tourist For Everyone"
-  nameweb: "TouristFE"
-  mainpage: "Home"
+  name_web: "TouristFE"
   application_helper:
     base_title: "Book tour for everyone"
   layouts:
@@ -9,16 +8,18 @@ en:
       logo: "TouristFE logo"
       vnlogo: "VN logo"
       enlogo: "EN logo"
-      listtour: "List Tour"
-      booktour: "Booking Tours"
+      list_tour: "List Tour"
+      book_tour: "Booking Tours"
       acount: "Acount"
       login: "Login"
       signup: "Sign up"
       contact: "Contact"
       home: "Home"
+      profile: "Profile"
+      logout: "Log out"
     footer:
       home: "Home"
-      listtour: "List Tour"
+      list_tour: "List Tour"
       book: "Booking Online"
       copyright: "Copyright © 2017 All rights reserved"
   mytours:
@@ -30,15 +31,15 @@ en:
       pre: "Previous"
       next: "Next"
       search: "Search Tour"
-      textc: "City name...."
+      name_city: "City name...."
       btsearch: "Search"
       farvorite: "FAVORITE PLACE"
       info_a: "Including tourist attractions,"
       info_b: "people can see the tour of those places"
       info_c: "to book their tours, including information"
       info_d: "of the tour such as: tour schedule, day trip ..."
-      listtour: "LIST TOUR"
-      booktour: "Book Tour"
+      list_tour: "LIST TOUR"
+      book_tour: "Book Tour"
       bktour: "BOOKING ONLINE"
       info_e: "Booking tours please contact hotline:"
       info_f: "0987654321"
@@ -49,6 +50,10 @@ en:
     new:
       signup_title: "Sign up"
       signup_header: "Sign up for free and start using TourFE"
+      create_account: "Create my account"
+      if_have_account: "If you already have a TourFE accoun"
+      login: "Log in"
+    form:
       name: "Name"
       email: "Email"
       sex: "Sex"
@@ -61,6 +66,18 @@ en:
       if_have_account: "If you already have a TourFE accoun"
       login: "Log in"
       phone_code: "+84"
+    edit:
+      edit_title: "Edit user"
+      save_change: "Save changes"
+      edit_header: "Update your profile"
+    show:
+      profile_header: "Profile"
+      name: "Name:"
+      email: "Email:"
+      sex: "Sex:"
+      phone: "Phone number:"
+      address: "Address:"
+      update: "Update profile"
   sessions:
     new:
       email: "Email"
@@ -75,7 +92,9 @@ en:
       error: "error"
   controllers:
     users_controller:
-      success: "OK! Sign up success!"
+      success_signup: "OK! Sign up success!"
+      success_update: "Updated profile"
+      please_login: "Please log in"
     sessions_controller:
-      loged_in: "OK! Logged in"
+      logged_in: "OK! Logged in"
       invalid: "Invalid email/password"
