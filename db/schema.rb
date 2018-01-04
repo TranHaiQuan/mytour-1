@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227030448) do
+ActiveRecord::Schema.define(version: 20180102132945) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20171227030448) do
     t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remember_digest"
   end
 
 end

@@ -1,5 +1,4 @@
 en:
-  title: "Tourist For Everyone"
   application_helper:
     base_title: "Book tour for everyone"
   layouts:
@@ -42,3 +41,26 @@ en:
       info_h: "11 Handico Tower Pham Hung Street,"
       info_i: "Nam Tu Liem county, Ha Noi"
       office: "OFFICE ADDRESS"
+  users:
+    new:
+      signup_title: "Sign up"
+      signup_header: "Sign up for free and start using TourFE"
+      name: "Name"
+      email: "Email"
+      sex: "Sex"
+      phone: "Phone number"
+      address: "Address"
+      address_detail: "street, district, city"
+      password: "Password"
+      password_confirmation: "Confirmation"
+      create_account: "Create my account"
+      if_have_account: "If you already have a TourFE accoun"
+      login: "Log in"
+      phone_code: "+84"
+  shared:
+    error_messages:
+      contains: "The form contains"
+      error: "error"
+  controllers:
+    users_controller.rb:
+      success: "OK! Sign up success!"
