@@ -2,9 +2,10 @@
 
 .snip1325 {
   position: relative;
+  z-index: 2;
   float: left;
+  margin-bottom: 20px;
   overflow: hidden;
-  margin: 55px 99px 0;
   min-width: 255px;
   max-width: 315px;
   height: 220px;
@@ -27,9 +28,10 @@
 
 .snip25 {
   position: relative;
+  z-index: 2;
   float: left;
+  margin-bottom: 20px;
   overflow: hidden;
-  margin: 57px -70px 0;
   min-width: 255px;
   max-width: 315px;
   height: 220px;
@@ -52,10 +54,9 @@
 
 .snip132 {
   position: relative;
+  z-index: 2;
   float: left;
   overflow: hidden;
-  margin-top: -300px;
-  margin-left: 440px;
   min-width: 255px;
   max-width: 315px;
   height: 220px;
@@ -78,10 +79,9 @@
 
 .snip13 {
   position: relative;
+  z-index: 2;
   float: left;
   overflow: hidden;
-  margin-top: -300px;
-  margin-left: 100px;
   min-width: 255px;
   max-width: 315px;
   height: 220px;
@@ -100,4 +100,9 @@
       transform: translateX(130px);
     }
   }
+}
+
+.includeimg {
+  margin-top: 73px;
+  margin-left: 45px;
 }

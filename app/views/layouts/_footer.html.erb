@@ -1,16 +1,27 @@
-<!-- Footer -->
-<div id="footer">
-  <div class="anitext">
-    <div class="bounce">
-      <%= t ".group" %>
+<footer>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3">
+      <ul class="menu">
+        <li>
+          <%= link_to t(".home"), "#" %>
+        </li>
+        <li>
+          <%= link_to t(".listtour"), "#listtour" %>
+        </li>
+
+        <li>
+          <%= link_to t(".book"), "#booked" %>
+        </li>
+      </ul>
     </div>
-    <div class="strobe">
-      <%= t ".dvn" %>
-      <br>
-      <%= t ".thq" %>
-    </div>
-    <div class="credits">
-      <i><%= t ".develop" %></i>
+  </div>
+</div>
+</footer>
+<div class="copyright">
+  <div class="container">
+    <div class="row text-center">
+      <p><%= t ".copyright" %></p>
     </div>
   </div>
 </div>

@@ -1,4 +1,7 @@
 en:
+  title: "Tourist For Everyone"
+  nameweb: "TouristFE"
+  mainpage: "Home"
   application_helper:
     base_title: "Book tour for everyone"
   layouts:
@@ -12,11 +15,12 @@ en:
       login: "Login"
       signup: "Sign up"
       contact: "Contact"
+      home: "Home"
     footer:
-      group: "Group: 02"
-      dvn: "Đặng Văn Nam"
-      thq: "Trần Hải Quan"
-      develop: "Developer: Dang Van Nam"
+      home: "Home"
+      listtour: "List Tour"
+      book: "Booking Online"
+      copyright: "Copyright © 2017 All rights reserved"
   mytours:
     home:
       bg1: "background 1"
