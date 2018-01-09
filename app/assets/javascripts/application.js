@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require jquery-ui
+//= require bootstrap
 //= require rails-ujs
-//= require carousel
-//= require turbolinks
+//= require bootstrap-datepicker
 //= require filter_search
+//= require booking
 //= require_tree .

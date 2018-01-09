@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <header class="header">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -12,7 +13,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to t(".listtour"), "#list" %></li>
+          <li><%= link_to t(".home"), root_path %></li>
+          <li><%= link_to t(".listtour"), mytours_path %></li>
           <li><%= link_to t(".booktour"), "#booked" %></li>
           <% if logged_in? %>
             <li>

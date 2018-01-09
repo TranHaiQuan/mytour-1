@@ -4,7 +4,9 @@ class CreateBookings < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.integer :tour_id
       t.integer :number_customer
-      t.datetime :departure_date
+      t.date :departure_date, default: Date.today.strftime("%d/%m/%Y")
+      t.integer :total_price
+      t.string :notebook
 
       t.timestamps
     end

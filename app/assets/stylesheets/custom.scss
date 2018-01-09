@@ -7,7 +7,7 @@
 /* Basic */
 
 body {
-  background: $color-222833;
+  background-color: $color-ecf0f5;
 }
 
 body, input, select, textarea {
@@ -21,11 +21,9 @@ body, input, select, textarea {
 
 a {
   color: $color-3ac984;
-  text-decoration: underline;
-}
-
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 
 strong, b {
@@ -477,14 +475,12 @@ table {
 /* Dropdown Button */
 
 .dropbtn {
-  background: $color-1632481;
+  background: $red;
   color: $white;
   padding: 16px;
-  font-size: 24px;
-  border: none;
-  cursor: pointer;
+  font-size: 20px;
+  z-index: 3;
   height: 55px;
-  font-family: "Shadows Into Light Two";
   font-weight: bold;
 }
 
@@ -642,7 +638,305 @@ table {
   padding: 0;
 }
 
-/* Banner */
+.searchtitle {
+  color: $color-333;
+  background-color: $color-f5f5f5;
+  border: 1px solid $color-ddd;
+  width: 260px;
+  text-align: center;
+  margin-left: 60px;
+  font-size: 20px;
+}
+
+.searchtour {
+  font-family: FontAwesome;
+  background-color: $white;
+  border: 1px solid $color-ddd;
+  width: 260px;
+  height: 100px;
+  text-align: center;
+  margin-left: 60px;
+  font-size: 20px;
+}
+
+.findplace {
+  font-family: FontAwesome;
+  background-color: $white;
+  border: 1px solid $color-ddd;
+  width: 260px;
+  height: 300px;
+  text-align: center;
+  margin-left: 60px;
+  font-size: 20px;
+}
+
+.btncolor {
+  background-color: $color-0d8aee;
+}
+
+.glyicon {
+  background-color: $white;
+}
+
+.btnsearch {
+  width: 84%;
+  margin: 12px 20px;
+}
+
+.resizesub {
+  width: 172px;
+  margin-top: 10px;
+}
+
+.searchdiv {
+  margin: 10px;
+}
+
+.totalrow {
+  margin-top: 75px;
+}
+
+.imgrow {
+  padding: 15px;
+}
+
+.borderrow {
+  border: 1px solid black;
+  margin-bottom: 15px;
+  background-color: $white;
+}
+
+.borderrow1 {
+  margin-bottom: 15px;
+}
+
+.wellrow {
+  background-color: $red;
+}
+
+.totalrow1 {
+  margin-top: 35px;
+}
+
+.pricerow {
+  margin: -147px 657px;
+  font-size: 24px;
+  color: $color-056ca0;
+}
+
+.oneprice {
+  font-size: 12px;
+  color: $red;
+  position: relative;
+  left: 74px;
+  top: -8px;
+}
+
+.titletour {
+  margin: 10px 10px;
+  font-size: 22px;
+}
+
+.detailbtn {
+  margin: 10px 10px;
+  .textal {
+    font-size: 20px;
+    width:150px;
+    height: 44px;
+  }
+}
+
+.alrow {
+  margin: 35px 40px;
+  color: $amber;
+  font-size: 28px;
+}
+
+.departrow {
+  color: $white;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.guestrow {
+  color: $white;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.movebook {
+  width: 335px;
+  position: fixed;
+  margin: 35px 50px;
+  background-color: $congress-blue;
+}
+
+.showname {
+  font-size: 26px;
+  font-family: sans-serif;
+}
+
+.showcode {
+  font-size: 20px;
+  float: right;
+}
+
+.showdes {
+  font-size: 20px;
+}
+
+.showplan {
+  font-size: 16px;
+  font-family: fantasy;
+  margin-bottom: 20px;
+}
+
+.showsche {
+  font-size: 22px;
+  font-family: sans-serif;
+  color: $blue;
+  padding: 10px;
+}
+
+.showtime {
+  font-size: 20px;
+}
+
+.imgleft {
+  margin-left: -15px;
+}
+
+.navbar {
+    border-radius: 0 !important;
+}
+
+.cusinput {
+  margin: 5px 5px;
+  font-size: 20px;
+  width: 197px;
+}
+
+.cussearch {
+  margin: -44px 193px;
+}
+
+.ipsize {
+  font-size: 20px;
+}
+
+#ui-id-1 {
+  list-style: none;
+  width: 15%;
+  font-size: 20px;
+  font-family: fantasy;
+  border: 1px solid $black;
+  background-color: $white;
+  li {
+    border-bottom: 1px solid $black;
+  }
+}
+
+.total_price {
+  background-color: $congress-blue;
+  border: none;
+}
+
+.vnd {
+  margin: 10px 10px;
+}
+
+.depa {
+  margin-top: -10px;
+}
+
+.gue {
+  margin-top: 20px;
+}
+
+.numberr {
+  margin: 25px -28px;
+}
+
+.btnsub {
+  height: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.pagi {
+  font-size: 20px;
+  margin-top: -20px
+}
+
+.sortrow {
+  margin-top: -20px;
+}
+
+.textcomment {
+  background-color: $white;
+}
+
+.country {
+  font-size: 42px;
+  color: $blue;
+  border-bottom: 1px solid black;
+}
+
+.sortby {
+  font-size: 26px;
+}
+
+.filrow {
+  margin-top: -38px;
+}
+
+.notfound {
+  font-size: 26px;
+  color: $red;
+  text-align: center;
+  margin-left: 283px;
+}
+
+.placefr {
+  margin-top: 30px;
+}
+
+.placetit {
+  padding: 10px;
+}
+
+#customer {
+  text-align: center;
+}
+
+.bookinfo {
+  font-size: 32px;
+  font-family: fantasy;
+  color: $blue;
+  padding: 15px;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.booktourname {
+  font-size: 24px;
+}
+
+.booktourcode {
+  font-size: 20px;
+  color: #8c8c8c;
+}
+
+.booktourdepart {
+  font-size: 20px;
+  color: #8c8c8c;
+}
+
+.comment {
+  width: 40%;
+  margin-left: 140px;
+}
+
 
 #banner {
   text-align: center;
@@ -666,6 +960,7 @@ table {
 /* Main */
 
 .homepage {
+  background-color: $color-ecf0f5;
   #header {
     padding: 8em 0;
     background-position: center;
@@ -759,4 +1054,8 @@ footer {
 
 header {
   margin-bottom: 60px;
+  background-color: $color-222222;
+  color: $white;
+  padding-top: 10px;
+  text-decoration: none;
 }

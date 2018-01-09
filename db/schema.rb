@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(version: 20180102132945) do
     t.integer "user_id"
     t.integer "tour_id"
     t.integer "number_customer"
-    t.datetime "departure_date"
+    t.date "departure_date", default: "2018-01-08"
+    t.integer "total_price"
+    t.string "notebook"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
