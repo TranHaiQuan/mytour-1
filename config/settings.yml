@@ -5,3 +5,5 @@ user:
     maximum: 255
   password:
     minimum: 8
+admins:
+  per_page: 10

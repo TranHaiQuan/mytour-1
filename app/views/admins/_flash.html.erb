@@ -1,0 +1,6 @@
+<% flash.each do |messages_type, messages| %>
+  <div class="alert alert-<%= messages_type %>" style="width: 100%">
+    <p><%= messages %> <%= link_to @user.name, edit_admin_path(@user),
+      remote: true %></p>
+  </div>
+<% end %>

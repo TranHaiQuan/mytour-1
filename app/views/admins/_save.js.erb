@@ -1,0 +1,11 @@
+<% if @user.errors.any? %>
+  document.getElementById("alert-danger-error").style.display = "block";
+  <% @user.errors.full_messages.each do |message| %>
+    $('ul.errors').append($('<li />').html('<%= message %>'))
+  <% end %>
+<% else %>
+  $('#flash').html('<%= escape_javascript(render "flash") %>')
+  $('.user-index').html('<%= escape_javascript(render "index") %>')
+  $('#user-modal').modal('hide')
+<% end %>
+

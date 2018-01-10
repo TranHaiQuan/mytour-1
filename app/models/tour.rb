@@ -4,5 +4,4 @@ class Tour < ApplicationRecord
   has_one :sevice_attach, dependent: :destroy
   has_one :stipulate, dependent: :destroy
   has_one :plan, dependent: :destroy
-  belongs_to :user
 end

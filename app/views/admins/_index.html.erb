@@ -1,0 +1,20 @@
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.phone %></td>
+    <td><%= user.address %></td>
+    <td><%= user.sex %></td>
+    <td>
+      <%= link_to edit_admin_path(user), class: "btn btn-success",
+        remote: true do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <% end %>
+      <%= link_to admin_delete_path(user), class: "btn btn-danger",
+        remote: true do %>
+        <span class="glyphicon glyphicon-trash"></span>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

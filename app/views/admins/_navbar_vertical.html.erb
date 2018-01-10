@@ -1,0 +1,84 @@
+<div class="col-sm-3 col-md-2 affix-sidebar">
+  <div class="sidebar-nav">
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+        <span class="sr-only"><%= t "toggle_nav" %></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <span class="visible-xs navbar-brand"><%= t "slidebar" %></span>
+      </div>
+      <div class="navbar-collapse collapse sidebar-navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#" data-toggle="collapse" data-target="#toggleDemo0"
+              data-parent="#sidenav01" class="collapsed">
+              <h4><span class="glyphicon glyphicon-user"></span>
+                <%= current_user.name %>
+              </h4>
+              </a>
+          </li>
+          <hr>
+          <li>
+            <%= link_to list_admin_path, id: "admin" do %>
+              <span class="glyphicon glyphicon-user"></span>
+              <%= t ".all_admin" %>
+              <span class="badge pull-right total_admin">
+                <%= User.list_admin.size %>
+              </span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to list_user_path, id: "user" do %>
+              <span class="glyphicon glyphicon-user"></span>
+              <%= t ".all_user" %>
+              <span class="badge pull-right total_user">
+                <%= User.list_user.size %>
+              </span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#", data: {toggle: "collapse", target:
+              "#toggleTour"}, class: "collapsed" do %>
+            <span class="glyphicon glyphicon-sunglasses"></span>
+              Tour
+              <span class="caret pull-right"></span>
+            <% end %>
+            <div class="panel-collapse collapse" id="toggleTour">
+              <ul class="nav nav-list">
+                <li>
+                  <%= link_to list_admin_path, id: "admin" do %>
+                  <span class="glyphicon glyphicon-plus"></span>
+                  Create
+                <% end %>
+                </li>
+                <li><%= link_to "All tour", "#" %></li>
+                <li><%= link_to "Tour opening", "#" %></li>
+                <li><%= link_to "Tour closed", "#" %></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <%= link_to "#", data: {toggle: "collapse", target:
+              "#toggleSetting"}, class: "collapsed" do %>
+            <span class="glyphicon glyphicon-cog"></span>
+              Settings page
+              <span class="caret pull-right"></span>
+            <% end %>
+            <div class="collapse" id="toggleSetting">
+              <ul class="nav nav-list">
+                <li><%= link_to "Contact", "#", id: "user" %></li>
+                <li><%= link_to "About", "#" %></li>
+                <li><%= link_to "Header", "#" %></li>
+                <li><%= link_to "Footer", "#" %></li>
+                <li><%= link_to "Dia diem yeu thich", "#" %></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

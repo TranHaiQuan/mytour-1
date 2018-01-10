@@ -1,0 +1,6 @@
+<%= render "save" %>
+<% if (@user.admin?) %>
+  $('.total_admin').html('<%= User.list_admin.size %>')
+<% else %>
+  $('.total_user').html('<%= User.list_user.size %>')
+<% end %>

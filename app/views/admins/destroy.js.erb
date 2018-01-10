@@ -1,0 +1,8 @@
+$('#flash').html('<%= escape_javascript(render "flash") %>')
+$('.user-index').html('<%= escape_javascript(render "index") %>')
+$('#user-modal').modal('hide')
+<% if (@user.admin?) %>
+  $('.total_admin').html('<%= User.list_admin.size %>')
+<% else %>
+  $('.total_user').html('<%= User.list_user.size %>')
+<% end %>
