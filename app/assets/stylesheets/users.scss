@@ -34,15 +34,7 @@ input {
   }
 }
 
-.checkbox {
-  margin-top: -10px 0 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
+.remember_me {
   width: auto;
   margin-left: 0;
 }
@@ -62,5 +54,33 @@ tbody {
   }
   tr td:first-child {
     font-weight: bold;
+  }
+}
+
+.form-control {
+  border-radius: 0;
+  &:hover, &:active {
+    background: $alto-color;
+  }
+}
+.btn.btn-outlined.btn-success {
+  background: none;
+  border-radius: 0;
+  border: 3px solid $fern-color;
+  color: $fern-color;
+  &:hover, &:active {
+    color: $white;
+    background: $apple-color;
+  }
+}
+
+.btn.btn-outlined.btn-primary {
+  border-radius: 0;
+  background: none;
+  border: 3px solid $electric-violet-color;
+  color: $electric-violet-color;
+  &:hover, &:active {
+    color: $white;
+    background: $electric-light-color;
   }
 }

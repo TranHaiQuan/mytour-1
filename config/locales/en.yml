@@ -13,6 +13,7 @@ en:
       acount: "Acount"
       login: "Login"
       signup: "Sign up"
+      signout: "Sign out"
       contact: "Contact"
       home: "Home"
       profile: "Profile"
@@ -51,7 +52,7 @@ en:
       signup_title: "Sign up"
       signup_header: "Sign up for free and start using TourFE"
       create_account: "Create my account"
-      if_have_account: "If you already have a TourFE accoun"
+      if_have_account: "If you already have a TourFE account"
       login: "Log in"
     form:
       name: "Name"
@@ -63,7 +64,7 @@ en:
       password: "Password"
       password_confirmation: "Confirmation"
       create_account: "Create my account"
-      if_have_account: "If you already have a TourFE accoun"
+      if_have_account: "If you already have a TourFE account"
       login: "Log in"
       phone_code: "+84"
     edit:

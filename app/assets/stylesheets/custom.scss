@@ -6,8 +6,9 @@
 
 /* Basic */
 
-body {
+html, body {
   background: $color-222833;
+  height: 100%;
 }
 
 body, input, select, textarea {
@@ -640,6 +641,8 @@ table {
 
 #alignrow {
   padding: 0;
+  min-height: 100%;
+  margin-bottom: -100px;
 }
 
 /* Banner */
@@ -703,6 +706,7 @@ table {
 footer {
   margin-top: 50px;
   background-color: $color-222222;
+  margin-top: 100px;
   ul {
     list-style: none;
     margin:0 auto;
