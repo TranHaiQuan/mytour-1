@@ -20,9 +20,9 @@ input {
 }
 
 #error_explanation {
-  color: red;
+  color: $red;
   ul {
-    color: red;
+    color: $red;
     margin: 0 0 30px;
   }
 }
@@ -45,4 +45,22 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.detail {
+  background-color: $cerulean-color;
+  border-top-width: 5px;
+  padding: 20px;
+  h2 {
+    margin-top: 0;
+  }
+}
+
+tbody {
+  tr:first-child td {
+    border-top: 0;
+  }
+  tr td:first-child {
+    font-weight: bold;
+  }
 }
