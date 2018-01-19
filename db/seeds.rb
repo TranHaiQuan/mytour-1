@@ -1,4 +1,4 @@
-50.times do |n|
+5.times do |n|
   name = "user#{n+1}-#{Faker::Name.name}"
   email = "user#{n+1}@gmail.com"
   phone = Faker::PhoneNumber.phone_number
@@ -14,7 +14,7 @@
   User.create!(name: name, email: email, phone: phone, address: address, sex: sex, admin: admin, password: password,
     password_confirmation: password_confirmation)
 end
-50.times do |n|
+10.times do |n|
   name = "admin#{n+1}-#{Faker::Name.name}"
   email = "admin#{n+1}@gmail.com"
   phone = Faker::PhoneNumber.phone_number

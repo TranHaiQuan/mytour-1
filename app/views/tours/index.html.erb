@@ -1,0 +1,62 @@
+<div class="row">
+  <section class="navbar-vertical">
+    <%= render "admins/navbar_vertical" %>
+  </section>
+  <section class="main-list">
+    <div class="col-sm-9 col-md-10">
+      <div class="container-fluid">
+        <div class="page-header">
+          <h3><span class="glyphicon glyphicon-th-list"></span> List Tour</h3>
+          <div class="row">
+            <div class="col-md-3">
+              <%= link_to "Create tour", new_tour_path, id: "new_tour", remote: true,
+                class: "btn btn-success" %>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-3">
+              <div class="input-group">
+                <input type="text" class="form-control" id="search-input"
+                  placeholder= "Search">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"><span
+                    class="glyphicon glyphicon-search" aria-hidden="true">
+                    </span>
+                  </button>
+                </span>
+              </div>
+            </div>
+
+          </div>
+          <hr>
+          <div class="new-tour"></div>
+          <div id="flash"></div>
+          <table class="table table-bordered table-striped table-hover" >
+            <thead>
+              <tr class="warning">
+                <th>ID</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Destination</th>
+                <th>Date</th>
+                <th>pick up place</th>
+                <th>price per person</th>
+                <th>Rate AVG</th>
+                <th>Create by</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="tour-index">
+              <%= render "record" %>
+            </tbody>
+          </table>
+          <div id="paginate">
+            <%#= paginate @tours%>
+          </div>
+        </div>
+        <div id="tour-modal" class="modal fade"></div>
+      </div>
+    </div>
+  </section>
+</div>

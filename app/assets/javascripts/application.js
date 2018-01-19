@@ -10,11 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require ckeditor/init
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
+//= require dropzone
 //= require bootstrap-sprockets
-//= require rails-ujs
 //= require carousel
+//= require bootstrap-datepicker
 //= require_tree .
-
+CKEDITOR.config.customConfig = "/assets/ckeditor/config.js";

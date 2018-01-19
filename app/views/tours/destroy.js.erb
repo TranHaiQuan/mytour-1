@@ -1,0 +1,4 @@
+$('#flash').html('<%= escape_javascript(render "flash") %>')
+$('.tour-index').html('<%= escape_javascript(render "record") %>')
+$('#tour-modal').modal('hide')
+$('.total_tour').html('<%= Tour.all_tour.size %>')

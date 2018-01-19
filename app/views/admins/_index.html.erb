@@ -11,6 +11,13 @@
         remote: true do %>
         <span class="glyphicon glyphicon-pencil"></span>
       <% end %>
+      <% unless user.admin? %>
+        <%= link_to admin_booking_path(user), class: "btn btn-warning",
+          remote: true do %>
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+          <span class="badge"><%= Booking.list_booking(user.id).size %></span>
+        <% end %>
+      <% end %>
       <%= link_to admin_delete_path(user), class: "btn btn-danger",
         remote: true do %>
         <span class="glyphicon glyphicon-trash"></span>

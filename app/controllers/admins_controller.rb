@@ -12,11 +12,12 @@ class AdminsController < ApplicationController
     @user = User.create user_params
     if @user.save
       flash.now[:success] = "You was created"
+    else
+      flash.now[:success] = "You can't create"
     end
   end
 
   def edit
-
     @user = User.find params[:id]
   end
 
@@ -27,7 +28,10 @@ class AdminsController < ApplicationController
     @user.update_attributes edit_user_params
     if @user.update edit_user_params
       flash.now[:success] = "You was updated"
+    else
+      flash.now[:success] = "You can't update"
     end
+    debugger
   end
 
   def list_admin
@@ -38,6 +42,12 @@ class AdminsController < ApplicationController
   def list_user
     @users = User.list_user.order(:id).paginate page: params[:page],
       per_page: Settings.admins.per_page
+
+  end
+
+  def booking
+    @user = User.find params[:admin_id]
+    @bookings = Booking.list_booking @user.id
   end
 
   def delete
@@ -50,19 +60,13 @@ class AdminsController < ApplicationController
     @user = User.find params[:id]
     @user.destroy
     if @user.destroyed?
-      flash.now[:danger] = "Destroyed"
+      flash.now[:danger] = "You was destroyed"
+    else
+      flash.now[:danger] = "You can't destroy"
     end
   end
 
   private
-
-  def ensure_admin
-    unless current_user.admin?
-      sign_out current_user
-      redirect_to root_path
-      return false
-    end
-  end
 
   def user_params
     params.require(:user).permit :name, :email, :sex, :phone, :address, :admin, :password, :password_confirmation

@@ -1,0 +1,56 @@
+<% provide :title_action, "Delete" %>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h4>
+      <span class="glyphicon glyphicon-warning-sign"></span>
+      <span class="glyphicon glyphicon-warning-sign"></span>
+      <span class="glyphicon glyphicon-warning-sign"></span>
+      Delete
+    </h4>
+  </div>
+    <div class="modal-body">
+      <ul class="errors"></ul>Comfirm delete<b>
+        <%= @tour.tour_name %></b> have information?
+      <table class="table">
+        <thead>
+          <tr class="danger">
+            <th>ID</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>pick up place</th>
+            <th>price per person</th>
+            <th>Rate AVG</th>
+            <th>Create by</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="warning">
+            <td><%= @tour.id %></td>
+            <td><%= @tour.tour_code %></td>
+            <td><%= @tour.tour_name %></td>
+            <td><%= @tour.destination %></td>
+            <td>
+              <p>Total days: <%= @tour.number_day %>D<%= @tour.number_night %>N</p>
+              <p>Departure: <%= @tour.departure_date %></p>
+              <p>Return: <%= @tour.return_date %></p>
+            </td>
+            <td><%= @tour.pickup_place %></td>
+            <td><%= @tour.price %></td>
+            <td><%= @tour.rate_avg %></td>
+            <td><%= @tour.user_id %></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <%= link_to t(".delete"), tour_path(@tour), method: :delete,
+        remote: true, class: "btn btn-danger" %>
+      <%= link_to t(".cancel"), "#", class: "btn btn-default",
+        data: {dismiss: "modal"} %>
+    </div>
+  </div>
+</div>

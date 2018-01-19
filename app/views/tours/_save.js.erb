@@ -1,0 +1,12 @@
+$('ul.errors').html('')
+<% if @tour.errors.any? %>
+  document.getElementById("alert-danger-error").style.display = "block";
+  <% @tour.errors.full_messages.each do |message| %>
+    $('ul.errors').append($('<li />').html('<%= message %>'))
+  <% end %>
+<% else %>
+  $('#flash').html('<%= escape_javascript(render "flash") %>')
+  $('.tour-index').html('<%= escape_javascript(render "record") %>')
+  $('#tour-modal').modal('hide')
+  $('.total_tour').html('<%= Tour.all_tour.size %>')
+<% end %>

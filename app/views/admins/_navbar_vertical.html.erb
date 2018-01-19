@@ -44,17 +44,19 @@
               "#toggleTour"}, class: "collapsed" do %>
             <span class="glyphicon glyphicon-sunglasses"></span>
               Tour
-              <span class="caret pull-right"></span>
+              <span class="badge pull-right total_tour">
+                <%= Tour.all_tour.size %>
+              </span>
             <% end %>
             <div class="panel-collapse collapse" id="toggleTour">
               <ul class="nav nav-list">
                 <li>
-                  <%= link_to list_admin_path, id: "admin" do %>
+                  <%= link_to new_tour_path, id: "new_tour", remote: true do %>
                   <span class="glyphicon glyphicon-plus"></span>
                   Create
                 <% end %>
                 </li>
-                <li><%= link_to "All tour", "#" %></li>
+                <li><%= link_to "All tour", tours_path %></li>
                 <li><%= link_to "Tour opening", "#" %></li>
                 <li><%= link_to "Tour closed", "#" %></li>
               </ul>

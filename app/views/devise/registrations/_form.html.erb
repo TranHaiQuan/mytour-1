@@ -21,7 +21,7 @@
 
   <div class="field">
     <%= f.label :sex, t(".sex") %>
-    <%= f.select :sex, User.sexes.keys, class: "form-control" %>
+    <%= f.select :sex, User.sexes.keys, {}, class: "form-control" %>
   </div>
 
   <div class="field">

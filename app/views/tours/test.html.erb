@@ -1,0 +1,62 @@
+<% if @tour.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      <%= t "shared.error_messages.contains" %> <%= pluralize @tour.errors.count, t("shared.error_messages.error") %>
+    </div>
+    <ul>
+      <% @tour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @tour do |f|%>
+  <%= f.label :tour_name %>
+  <%= f.text_field :tour_name, class: "form-control" %>
+  <%= f.fields_for :plan do |k| %>
+    <%= k.label :description %>
+    <%= k.cktext_area :description, rows: 10 %>
+  <% end %>
+  <h3>Sevice Attach</h3>
+  <hr>
+  <%= f.fields_for :sevice_attach do |l| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= l.label :insurrance %>
+        <%= l.text_area :insurrance, rows: 5 %>
+      </div>
+      <div class="col-md-6">
+        <%= l.label :meal %>
+        <%= l.text_area :meal, rows: 5 %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= l.label :tour_guide %>
+        <%= l.text_area :tour_guide, rows: 5 %>
+      </div>
+      <div class="col-md-6">
+        <%= l.label :entrance_tickets %>
+        <%= l.text_area :entrance_tickets, rows: 5 %>
+      </div>
+    </div>
+    <%= l.label :chuttle_car %>
+    <%= l.text_area :chuttle_car, rows: 5 %>
+  <% end %>
+  <h3>Stipulate</h3>
+  <hr>
+  <%= f.fields_for :stipulate do |m| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= m.label :note %>
+        <%= m.text_area :note, rows: 5 %>
+      </div>
+      <div class="col-md-6">
+        <%= m.label :cancel_tour %>
+        <%= m.text_area :cancel_tour, rows: 5 %>
+      </div>
+    </div>
+  <% end %>
+  <%= f.submit class: "btn btn-warning" %>
+<% end %>

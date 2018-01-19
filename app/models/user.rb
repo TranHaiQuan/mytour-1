@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
-
+  has_many :tours
   has_many :reviews
-  has_one :pay
-  has_many :tours, through: :bookings
+  has_many :bookings
+  has_many :tour_user, through: :bookings, class_name: :Tour
   enum sex: %i(Male Female)
   validates :phone, presence: true
   validates :address, presence: true

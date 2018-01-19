@@ -1,0 +1,30 @@
+<% @tours.each do |tour| %>
+  <tr>
+    <td><%= tour.id %></td>
+    <td><%= tour.tour_code %></td>
+    <td><%= tour.tour_name %></td>
+    <td><%= tour.destination %></td>
+    <td>
+      <p>Total days: <%= tour.number_day %>D<%= tour.number_night %>N</p>
+      <p>Departure: <%= tour.departure_date %></p>
+      <p>Return: <%= tour.return_date %></p>
+    </td>
+    <td><%= tour.pickup_place %></td>
+    <td><%= tour.price %></td>
+    <td><%= tour.rate_avg %></td>
+    <td>
+      <%= tour.created_by %><br>
+      <%#= image_tag tour.image_title.url if tour.image_title? %>
+    </td>
+    <td>
+      <%= link_to edit_tour_path(tour), class: "btn btn-success", id: "edit_tour",
+        remote: true do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <% end %>
+      <%= link_to tour_delete_path(tour), class: "btn btn-danger",
+        remote: true do %>
+        <span class="glyphicon glyphicon-trash"></span>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

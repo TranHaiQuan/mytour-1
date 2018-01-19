@@ -1,13 +1,16 @@
 source "https://rubygems.org"
 
 gem "bcrypt", "3.1.11"
+gem "bootstrap-datepicker-rails"
 gem "bootstrap-sass", "3.3.7"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "carrierwave", "1.1.0"
 gem "ckeditor"
+gem "cloudinary"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
+gem "dropzonejs-rails"
 gem "faker", "1.7.3"
 gem "fog-aws", "2.0.0"
 gem "font-awesome-sass"
@@ -20,6 +23,7 @@ gem "nokogiri", "1.8.1"
 gem "paperclip"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.4"
+gem "ransack"
 gem "sass-rails", "~> 5.0"
 gem "sqlite3"
 gem "turbolinks", "~> 5"
@@ -38,4 +42,9 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+end
+
+group :production do
+  gem "pg"
+  gem "fog"
 end

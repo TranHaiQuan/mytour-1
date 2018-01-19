@@ -1,0 +1,139 @@
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title"><%= yield :title_action %></h4>
+    </div>
+    <div class="modal-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#info-basic">Info basic</a></li>
+        <li><a data-toggle="tab" href="#description">Description</a></li>
+        <li><a data-toggle="tab" href="#sevice">Sevice Attach</a></li>
+        <li><a data-toggle="tab" href="#slipulate">Slipulate</a></li>
+      </ul>
+      <div class="alert alert-danger" id="alert-danger-error">
+        <ul class="errors "></ul>
+      </div>
+      <%= form_for @tour, :html => {:multipart => true}, remote: true do |f|%>
+        <div class="tab-content">
+          <div id="info-basic" class="tab-pane fade in active">
+            <%= f.label :tour_name %>
+            <%= f.text_field :tour_name, class: "form-control" %>
+            <div class="row">
+              <div class="col-md-3">
+                <%= f.label :departure_date %>
+                <%#= f.text_field :departure_date, data: {provide: "datepicker"}, class: "form-control" %>
+                <%= f.date_field :departure_date, class: "form-control" %>
+              </div>
+              <div class="col-md-2">
+                <%= f.label :number_day %>
+                <%= f.select :number_day, 1..15, {}, class: "form-control" %>
+              </div>
+              <div class="col-md-2">
+                <%= f.label :number_night %>
+                <%= f.select :number_night, 1..15, {}, class: "form-control" %>
+              </div>
+              <div class="col-md-2">
+                <%= f.label :pickup_place %>
+                <%= f.text_field :pickup_place, class: "form-control" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :price %>
+                <div class="input-group">
+                  <%= f.text_field :price, class: "form-control", aria: {describedby: "basic-addon2"} %>
+                  <span class="input-group-addon" id="basic-addon2">VND</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <%= f.label :return_date %>
+                <%= f.text_field :return_date, class: "form-control", readonly: true %>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :image_title %>
+                <%= f.file_field :image_title, class: "fallback" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :image_small %>
+                <%= f.file_field :image_small, class: "form-control" %>
+              </div>
+            </div>
+
+          </div>
+          <div id="description" class="tab-pane fade">
+            <%= f.fields_for :plan do |k| %>
+              <%= k.label :description %>
+              <%= k.cktext_area :description, rows: 10 %>
+            <% end %>
+          </div>
+          <div id="sevice" class="tab-pane fade">
+            <%= f.fields_for :sevice_attach do |l| %>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= l.label :insurrance %>
+                  <%= l.text_area :insurrance, rows: 5 %>
+                </div>
+                <div class="col-md-6">
+                  <%= l.label :meal %>
+                  <%= l.text_area :meal, rows: 5 %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= l.label :tour_guide %>
+                  <%= l.text_area :tour_guide, rows: 5 %>
+                </div>
+                <div class="col-md-6">
+                  <%= l.label :entrance_tickets %>
+                  <%= l.text_area :entrance_tickets, rows: 5 %>
+                </div>
+              </div>
+              <%= l.label :chuttle_car %>
+              <%= l.text_area :chuttle_car, rows: 5 %>
+            <% end %>
+          </div>
+          <div id="slipulate" class="tab-pane fade">
+            <%= f.fields_for :stipulate do |m| %>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= m.label :note %>
+                  <%= m.text_area :note, rows: 5 %>
+                </div>
+                <div class="col-md-6">
+                  <%= m.label :cancel_tour %>
+                  <%= m.text_area :cancel_tour, rows: 5 %>
+                </div>
+              </div>
+            <% end %>
+            <%= f.submit class: "btn btn-warning" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#tour_number_day").click(function(){
+      document.getElementById("tour_number_night").value = Number(document.getElementById("tour_number_day").value) + Number(1);
+      set_return_day();
+    });
+    $("#tour_number_night").click(function(){
+      set_return_day();
+    });
+    $("#tour_departure_date").change(function(){
+      set_return_day();
+    });
+    function set_return_day(){
+      var nights = parseInt($('#tour_number_night').val());
+      var return_date_js = new Date($('#tour_departure_date').val());
+      return_date_js.setDate(return_date_js.getDate() + nights);
+      document.getElementById("tour_return_date").value = return_date_js.toISOString().split("T")[0];
+    }
+  });
+</script>
