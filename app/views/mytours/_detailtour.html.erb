@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="col-md-8 borrow1">
+    <div class="borderele">
+      <div class="product-item">
+        <div class="showname"><h2><%= @tour.tour_name %></h2></div>
+        <div class="imgleft">
+          <%= image_tag(@tour.image, width: Settings.image.width,
+          height: Settings.image.height) %>
+        </div>
+        <div class="row">
+        <div class="col-xs-4 cpad">
+          <%= rating_for @tour, "quality",disable_after_rate: false,
+            enable_half: true, half_show: true, id: "oos" %>
+          <div id="thanks"></div>
+        </div>
+        <div class="col-xs-6"></div>
+        <div class="col-xs-2 shares">
+          <div class="widget-body">
+            <div class="beta-sales beta-lists">
+             <%= social_share_button_tag(@tour.tour_name) %>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+          <div class="showdes">
+            <span class="glyphicon glyphicon-map-marker"></span>
+            <%= @tour.destination %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="showtime">
+            <span class="glyphicon glyphicon-time"></span>
+            <%= @tour.number_day %><%= t ".day" %>
+            <%= @tour.number_night %><%= t ".night" %>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+          <div class="showcode"><%= t ".tourcode" %><%= @tour.tour_code %></div>
+        </div>
+      </div>
+      <div class="showsche"><%= t ".schedule" %></div>
+      <div class="showplan well"><%= @tour.plan.description.html_safe %></div>
+      <div class="row">
+        <div class="col-xs-12 well">
+          <div id="formcomment">
+            <% if current_user %>
+              <%= form_for @review, remote: true do |r| %>
+                <div class="row rowcomment">
+                  <div class="col-xs-6">
+                    <%= r.text_area :comment, placeholder: t(".comment"),
+                      class: "form-control areatext", id: "clearcm" %>
+                  </div>
+                  <%= r.hidden_field :user_id, value: current_user.id, class: "form-control" %>
+                  <%= r.hidden_field :tour_id, value: @tour.id, class: "form-control" %>
+                </div>
+                <%= r.submit t(".submit"), class: "btn btn-success
+                  col-xs-2 submitcomment" %>
+              <% end %>
+            <% else %>
+              <%= link_to t(".login"), login_path, class: "btn btn-success logincomment" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="comments"><%= render "comments" %></div>
+      <div id="pagi"><%= paginate @comments, remote: true %></div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <% if current_user %>
+      <div class="movebook">
+        <%= form_for @booking do |f| %>
+          <div class="alrow">
+            <div class="row">
+              <div class="col-md-7">
+                <%= f.text_field :total_price, value: @tour.price,
+                  class: "total_price totalprice", readonly: true %>
+              </div>
+              <div class="col-md-5"><%= t ".vnd" %></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 numberr">
+              <div class="guestrow"><%= t ".guest" %></div>
+            </div>
+            <div class="col-md-5 numberr">
+              <%= f.hidden_field :tour_id, value: @tour.id, class: "form-control" %>
+              <%= f.hidden_field :price, value: @tour.price, class: "form-control", id: "price" %>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <span id="down" class="btn btn-default">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </span>
+                </span>
+                <%= f.text_field :number_customer, value: 1,
+                  class: "form-control addcus", id: "customer", readonly: true %>
+                <span class="input-group-btn">
+                  <span id="up" class="btn btn-default spanadd">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 btnsub">
+              <%= f.submit t(".booktour"), class: "btn btn-danger" %>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="borbook">
+        <%= link_to t(".booking"), login_path, class: "btn btn-danger
+          loginbook" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -11,10 +11,10 @@ class CreateTours < ActiveRecord::Migration[5.1]
       t.date :return_date
       t.string :pickup_place, default: "Nghe an"
       t.integer :price, defaul: 40000
-      t.string :image_small
-      t.string :image_title
+      t.string :image, default: "https://cdn2.ivivu.com/2017/03/08/16/ivivu-tour-phu-quoc-3n2d-kham-pha-dong-dao-nam-dao-lang-chai-ham-ninh.jpg"
       t.float :rate_avg, default: 3.0
       t.string :created_by
+
       t.timestamps
     end
   end

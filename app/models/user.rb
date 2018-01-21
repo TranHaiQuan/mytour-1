@@ -12,4 +12,5 @@ class User < ApplicationRecord
     length: {maximum: Settings.user.name.maximum}
   scope :list_admin, -> {where admin: true}
   scope :list_user, -> {where admin: false}
+  ratyrate_rater
 end

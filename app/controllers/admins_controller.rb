@@ -7,8 +7,7 @@ class AdminsController < ApplicationController
   end
 
   def create
-    @users = User.list_admin.order(:id).paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @users = User.list_admin.order(:id).ppage(params[:page]).per Settings.admins.per_page
     @user = User.create user_params
     if @user.save
       flash.now[:success] = "You was created"
@@ -22,8 +21,7 @@ class AdminsController < ApplicationController
   end
 
   def update
-    @users = User.list_admin.order(:id).paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @users = User.list_admin.order(:id).page(params[:page]).per Settings.admins.per_page
     @user = User.find params[:id]
     @user.update_attributes edit_user_params
     if @user.update edit_user_params
@@ -35,13 +33,11 @@ class AdminsController < ApplicationController
   end
 
   def list_admin
-    @users = User.list_admin.order(:id).paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @users = User.list_admin.order(:id).page(params[:page]).per Settings.admins.per_page
   end
 
   def list_user
-    @users = User.list_user.order(:id).paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @users = User.list_user.order(:id).page(params[:page]).per Settings.admins.per_page
 
   end
 
@@ -55,9 +51,12 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-    @users = User.list_admin.order(:id).paginate page: params[:page],
-      per_page: Settings.admins.per_page
     @user = User.find params[:id]
+    if @user.admin?
+      @users = User.list_admin.order(:id).page(params[:page]).per Settings.admins.per_page
+    else
+      @users = User.list_user.order(:id).page(params[:page]).per Settings.admins.per_page
+    end
     @user.destroy
     if @user.destroyed?
       flash.now[:danger] = "You was destroyed"

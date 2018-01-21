@@ -1,0 +1,16 @@
+<% @comments.each do |t| %>
+  <div class="well">
+    <div class="commentname">
+      <%= t ".sentby" %><%= t.user.name %>
+    </div>
+    <div class="commentdes"><%= t.comment %></div>
+    <span class="timestamp">
+      <%= t ".post" %><%= time_ago_in_words(t.created_at) %><%= t ".ago" %>
+    </span>
+  </div>
+<% end %>
+<div>
+  <span class="timesago">
+    <%= t ".total" %><%= @comments.total_count %>
+  </span>
+</div>

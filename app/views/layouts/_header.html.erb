@@ -1,48 +1,61 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"
-        data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
+<header id="home">
+  <div class="main_menu_bg">
+    <div class="container">
+      <div class="row">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid" id="colla">
+            <div class="navbar-header">
+              <ul class="nav navbar-nav navbar-left">
+                <li class="name-web"><%= link_to "TourFE", root_path %></li>
+              </ul>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to t(".list_tour"), mytours_path,
+                  class: "booking" %></li>
+                <% if current_user %>
+                  <% if current_user.admin? %>
+                    <li><%= link_to "Manager", list_user_path %></li>
+                  <% else %>
+                    <li><%= link_to booked_path do %>
+                      <span class="glyphicon glyphicon-shopping-cart"></span>
+                      <span class="badge pull-right">
+                        <%= Booking.list_booking(current_user.id).size %>
+                      </span>
+                    <% end %>
+                    </li>
+                  <% end %>
+                  <li>
+                    <%= link_to edit_user_registration_path do %>
+                      <span class="glyphicon glyphicon-user"></span>
+                      <%= current_user.email %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                      <span class="glyphicon glyphicon-off"></span>
+                      <%= t ".signout" %>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to new_user_registration_path do %>
+                      <span class="glyphicon glyphicon-user"></span>
+                      <%= t ".signup" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to new_user_session_path do %>
+                      <span class="glyphicon glyphicon-user"></span>
+                      <%= t ".login" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><%= link_to t(".home"), "#" %></li>
-        <li><%= link_to t(".listtour"), "#list" %></li>
-        <li><%= link_to t(".booktour"), "#booked" %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <li>
-            <%= link_to edit_user_registration_path do %>
-              <span class="glyphicon glyphicon-user"></span>
-              <%= current_user.email %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <span class="glyphicon glyphicon-user"></span>
-              <%= t ".signout" %>
-            <% end %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to new_user_registration_path do %>
-              <span class="glyphicon glyphicon-user"></span>
-              <%= t ".signup" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_user_session_path do %>
-              <span class="glyphicon glyphicon-user"></span>
-              <%= t ".login" %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+  </div>
 </header>

@@ -5,5 +5,15 @@ user:
     maximum: 255
   password:
     minimum: 8
+  comment: 150
 admins:
   per_page: 10
+  comment: 200
+paginate:
+  per_page: 6
+  comment_page: 3
+image:
+  width: 778
+  height: 390
+  widthbook: 500
+  heightbook: 300

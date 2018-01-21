@@ -3,8 +3,7 @@ class ToursController < ApplicationController
   before_action :ensure_admin
 
   def index
-    @tours = Tour.all_tour.order("created_at DESC").paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @tours = Tour.all_tour.order("created_at DESC").page(params[:page]).per Settings.admins.per_page
   end
 
   def search
@@ -31,10 +30,10 @@ class ToursController < ApplicationController
     else
       flash.now[:danger] = "Tour can't create"
     end
+    @tour.tour_name = "Tour #{@tour.destination} #{@tour.number_day}N#{@tour.number_night}D: #{@tour.tour_name}"
     @tour.tour_code = "TFE-#{Date.today.strftime("%d%m%Y")}-#{@tour.id}"
     @tour.save
-    @tours = Tour.all_tour.order("created_at DESC").paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @tours = Tour.all_tour.order("created_at DESC").page(params[:page]).per Settings.admins.per_page
   end
 
   def edit
@@ -42,8 +41,7 @@ class ToursController < ApplicationController
   end
 
   def update
-    @tours = Tour.all_tour.order("created_at DESC").paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @tours = Tour.all_tour.order("created_at DESC").page(params[:page]).per Settings.admins.per_page
     @tour = Tour.find params[:id]
     @tour.user = current_user
     if @tour.update_attributes tour_params
@@ -58,8 +56,7 @@ class ToursController < ApplicationController
   end
 
   def destroy
-    @tours = Tour.all_tour.order("created_at DESC").paginate page: params[:page],
-      per_page: Settings.admins.per_page
+    @tours = Tour.all_tour.order("created_at DESC").page(params[:page]).per Settings.admins.per_page
     @tour = Tour.find params[:id]
     @tour.destroy
     if @tour.destroyed?
@@ -72,7 +69,7 @@ class ToursController < ApplicationController
   def tour_params
     params.require(:tour).permit :tour_name, :tour_code, :destination,
       :number_day, :number_night, :departure_date, :return_date, :pickup_place,
-      :price, :rate_avg, :created_by, :image_title, :image_small,
+      :price, :rate_avg, :created_by, :image,
       plan_attributes: [:id, :description],
       stipulate_attributes: [:id, :note, :cancel_tour],
       sevice_attach_attributes: [:id, :insurrance, :meal, :tour_guide,

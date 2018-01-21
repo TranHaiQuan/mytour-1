@@ -1,0 +1,47 @@
+<section id="slider">
+  <div class="container">
+    <div class="row">
+      <table class="table table-striped custab">
+        <thead>
+          <tr>
+            <th class="custab">Tour Name</th>
+            <th class="custab"><%= t ".number_customer" %></th>
+            <th class="custab">Price</th>
+            <th class="custab">Status</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <% @books.each do |b| %>
+          <tr>
+            <div class="col-md-4"><td><%= b.tour.tour_name %></td></div>
+            <td><%= b.number_customer %></td>
+            <td><%= number_to_vnd(b.total_price) %><%= t ".vnd" %></td>
+            <td>
+              <% if b.status == "Unchecked" || b.status == "Declined" %>
+                <span class="label label-danger"><%= b.status %></span>
+              <% elsif b.status == "Approved" %>
+                <span class="label label-warning"><%= b.status %></span>
+              <% else %>
+                <span class="label label-success"><%= b.status %></span>
+              <% end %>
+            </td>
+            <% if b.status == "Done" %>
+            <td class="text-center"></td>
+            <% else %>
+            <td class="text-center">
+              <%= link_to edit_booking_path(b), remote: true, class: "btn btn-primary btn-xs" do %>
+              <span class="glyphicon glyphicon-edit"></span>Edit
+              <% end %>
+              <%= link_to booking_delete_path(b), remote: true, class: "btn btn-danger btn-xs" do %>
+                <span class="glyphicon glyphicon-remove"></span>Del
+              <% end %>
+            </td>
+            <% end %>
+          </tr>
+        <%end %>
+      </table>
+    </div>
+    <div id="bookmodal" class="modal fade">
+    </div>
+  </div>
+</section>

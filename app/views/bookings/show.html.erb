@@ -1,0 +1,69 @@
+<section>
+  <div class="container">
+    <div class="row well bookstatus">
+        <div class="row mgstatus">
+          <div class="col-md-5"></div>
+          <div class="col-md-3 status">
+            <%= t ".status" %>
+            <span class="btn-lg btn-danger ">
+              <%= @booking.status %>
+            </span>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-7 showchecked">
+            <%= t ".notice" %>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-7">
+                <%= t ".thanks" %>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <div class="row well">
+          <div class="showname">
+            <%= @booking.tour.tour_name %>
+          </div>
+          <div class="col-md-3">
+            <div class="showdes">
+              <span class="glyphicon glyphicon-map-marker"></span>
+              <%= @booking.tour.destination %>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="showtime">
+              <span class="glyphicon glyphicon-time"></span>
+              <%= @booking.tour.number_day %><%= t ".day" %>
+              <%= @booking.tour.number_night %><%= t ".night" %>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <div class="showcode">
+              <%= t ".tourcode" %><%= @booking.tour.tour_code %>
+            </div>
+          </div>
+          <div class="showdes">
+            Number guest: <%= @booking.number_customer %>
+          </div>
+          <div class="showdes">
+            Total Price: <%= number_to_vnd(@booking.total_price) %> VND
+          </div>
+          <div class="row showdes">
+            <div class="col-md-5"></div>
+            <div class="col-md-3">
+              <%= link_to t(".showlisted"), booked_path, class: "btn btn-success btn-lg" %>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</section>

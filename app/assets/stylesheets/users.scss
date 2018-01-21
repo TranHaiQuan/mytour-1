@@ -62,6 +62,9 @@ tbody {
   &:hover, &:active {
     background: $alto-color;
   }
+  option {
+    min-height: 1.8em;
+  }
 }
 .btn.btn-outlined.btn-success {
   background: none;
@@ -90,4 +93,35 @@ tbody {
   border: none !important;
   font-size: 2.5rem;
   font-weight: 700;
+}
+
+.form-user {
+  margin-top: 100px;
+  padding: 20px;
+  background-color: $moon-mist-color;
+  border-radius: 3px;
+}
+
+.container-form {
+  background-image: url("https://cdn2.ivivu.com/2016/05/06/10/singapore.jpg");
+  height: 100vh;
+}
+
+.modal-fix-length {
+  width: 1200px;
+}
+
+h4.name-tour {
+  margin-left: 15px;
+  height: 40px;
+  a {
+    color: $regal-blue-color !important;
+    &:hover {
+      text-decoration-line: none;
+    }
+  }
+}
+
+.pull-right {
+  background-color: $mexican-red-color;
 }

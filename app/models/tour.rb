@@ -10,9 +10,11 @@ class Tour < ApplicationRecord
   accepts_nested_attributes_for :plan, allow_destroy: true
   accepts_nested_attributes_for :sevice_attach, allow_destroy: true
   accepts_nested_attributes_for :stipulate, allow_destroy: true
-  scope :all_tour, -> {select(:id, :user_id, :tour_name, :tour_code, :destination,
+  scope :all_tour, -> {select :id, :user_id, :tour_name, :tour_code, :destination,
       :number_day, :number_night, :departure_date, :return_date, :pickup_place,
-      :price, :rate_avg, :created_by, :image_title, :image_small)}
-  mount_uploader :image_title, ImageUploader
-  mount_uploader :image_small, ImageUploader
+      :price, :rate_avg, :created_by, :image}
+  # mount_uploader :image, ImageUploader
+  ratyrate_rateable "quality"
+  scope :infotour, ->{select :id, :user_id, :tour_name, :pick_up, :number_day,
+    :number_night, :price, :destination, :tour_code, :image}
 end

@@ -1,11 +1,15 @@
 <% provide :action_text, t("devise.registrations.form.save_change") %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h2 class="text-center"><strong>
-        <%= t "devise.registrations.form.profile" %>
-        <%= current_user.name %></strong></h2>
-      <%= render "form" %><br>
+<div class="container-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="form-user">
+          <h2 class="text-center"><strong>
+            <%= t "devise.registrations.form.profile" %>
+            <%= current_user.name %></strong></h2>
+          <%= render "form" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

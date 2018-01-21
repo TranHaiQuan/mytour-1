@@ -14,9 +14,11 @@
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
-//= require dropzone
 //= require bootstrap-sprockets
-//= require carousel
 //= require bootstrap-datepicker
+//= require booking
+//= require jquery.raty
+//= require ratyrate
+//= require social-share-button
 //= require_tree .
 CKEDITOR.config.customConfig = "/assets/ckeditor/config.js";
